@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="My suite">
+    <test name="My test">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="runners.TestRunner" />
+        </classes>
+    </test>
+</suite>
