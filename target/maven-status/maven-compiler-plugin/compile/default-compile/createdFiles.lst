@@ -1,3 +1,5 @@
-pages/LoginPage.class
 utils/SharedDriver.class
+pages/LoginPage.class
 pages/HomePage.class
+utils/StepUtils.class
+pages/BasePage.class

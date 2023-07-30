@@ -8,7 +8,7 @@ import org.testng.annotations.Parameters;
 @CucumberOptions(
         features = "src/test/resources/features", // Path to the directory where feature files are located
         glue = {"stepdefs"}, // Package name where step definition classes are located
-        tags = "@smokeTest", // Specify the tags to include/exclude scenarios
+        tags = "@homepage", // Specify the tags to include/exclude scenarios
         plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
@@ -18,5 +18,4 @@ public class TestRunner extends AbstractTestNGCucumberTests {
     public void setUp(String browser) {
         System.setProperty("browser", browser);
     }
-
 }

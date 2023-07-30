@@ -1,6 +1,6 @@
 Feature: Login
 
-  @smokeTest
+  @login
   Scenario Outline: Successful login
     Given I am on the login page
     When I enter my username "<username>" and password "<password>"
@@ -12,7 +12,7 @@ Feature: Login
       | rahulshettyacademy | learning |
 
 
-  @smokeTest
+  @login
   Scenario Outline: Unsuccessful login
     Given I am on the login page
     When I enter an incorrect username "<username>" or password "<password>"
