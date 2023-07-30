@@ -16,13 +16,7 @@ import org.testng.annotations.Parameters;
         features = "src/test/resources/features", // Path to the directory where feature files are located
         glue = {"stepdefs"}, // Package name where step definition classes are located
         tags = "@smokeTest", // Specify the tags to include/exclude scenarios
-        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
-        /*plugin = {
-                "pretty", // Prints the Gherkin steps in the console
-                "html:target/cucumber-reports.html", // Generates HTML reports
-                "json:target/cucumber-reports.json", // Generates JSON reports
-                "testng:target/testng-cucumber-reports.xml" // Generates TestNG reports*/
-        }
+        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
     private static WebDriver driver;
