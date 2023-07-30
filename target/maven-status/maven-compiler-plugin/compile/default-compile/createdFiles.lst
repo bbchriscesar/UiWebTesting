@@ -1,1 +1,3 @@
 pages/LoginPage.class
+utils/SharedDriver.class
+pages/HomePage.class

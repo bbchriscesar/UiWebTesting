@@ -1,2 +1,3 @@
-runners/TestRunner.class
 stepdefs/LoginStepDef.class
+runners/TestRunner.class
+stepdefs/HomepageStepDef.class

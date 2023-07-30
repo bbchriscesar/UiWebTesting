@@ -6,10 +6,10 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 import pages.LoginPage;
-import runners.TestRunner;
+import utils.SharedDriver;
 
 public class LoginStepDef {
-    private final LoginPage loginPage = new LoginPage(TestRunner.getDriver());
+    private final LoginPage loginPage = new LoginPage(SharedDriver.getDriver());
 
     @Given("^I am on the login page")
     public void i_am_on_the_login_page() {
