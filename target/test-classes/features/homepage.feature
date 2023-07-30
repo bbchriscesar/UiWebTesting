@@ -6,10 +6,12 @@ Feature: Homepage
     And I click the login button
     Then I should be logged in
 
+  @homepage
   Scenario: Verify elements on the homepage
     Given I am on the homepage
     Then I should see the homepage elements
 
+  @homepage
   Scenario: Verify navigation to other pages from the homepage
     Given I am on the homepage
     When I click on a navigation link

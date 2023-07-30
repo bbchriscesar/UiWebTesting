@@ -4,47 +4,37 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
-public class LoginPage {
-    private final WebDriver driver;
-    private final WebDriverWait wait;
+public class LoginPage extends BasePage {
 
     private final By usernameField = By.id("username");
     private final By passwordField = By.id("password");
     private final By loginButton = By.id("signInBtn");
+    private final By loggedInElement = By.id("navbarResponsive");
+    private final By errorMessageLocator = By.cssSelector("#login-form > div.alert.alert-danger");
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-    }
-
-    public void navigateToLoginPage() {
-        driver.get("https://rahulshettyacademy.com/loginpagePractise/");
+        super(driver);
     }
 
     public void enterUsername(String username) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(usernameField)).sendKeys(username);
+        enterText(usernameField, username);
     }
 
     public void enterPassword(String password) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(passwordField)).sendKeys(password);
+        enterText(passwordField, password);
     }
 
     public void clickLoginButton() {
-        wait.until(ExpectedConditions.elementToBeClickable(loginButton)).click();
+        click(loginButton);
     }
 
     public boolean isLoggedIn() {
-        By loggedInElement = By.id("navbarResponsive");
-        return !wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(loggedInElement, 0)).isEmpty();
+        return !getWait().until(ExpectedConditions.numberOfElementsToBeMoreThan(loggedInElement, 0)).isEmpty();
     }
 
     public boolean isErrorMessageDisplayed() {
-        By errorMessageLocator = By.cssSelector("#login-form > div.alert.alert-danger");
-        WebElement errorMessageElement = wait.until(ExpectedConditions.visibilityOfElementLocated(errorMessageLocator));
+        WebElement errorMessageElement = getWait().until(ExpectedConditions.visibilityOfElementLocated(errorMessageLocator));
         return errorMessageElement.isDisplayed();
     }
 }

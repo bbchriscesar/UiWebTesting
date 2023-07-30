@@ -4,16 +4,24 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pages.LoginPage;
 import utils.SharedDriver;
+import utils.StepUtils;
 
 public class LoginStepDef {
-    private final LoginPage loginPage = new LoginPage(SharedDriver.getDriver());
+    private final WebDriver driver;
+    private final LoginPage loginPage;
+
+    public LoginStepDef() {
+        this.driver = SharedDriver.getDriver();
+        this.loginPage = new LoginPage(driver);
+    }
 
     @Given("^I am on the login page")
     public void i_am_on_the_login_page() {
-        loginPage.navigateToLoginPage();
+        StepUtils.navigateToLoginPage(driver);
     }
 
     @When("^I enter my username \"([^\"]*)\" and password \"([^\"]*)\"$")
